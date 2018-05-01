@@ -1,0 +1,14 @@
+.dropdown-menu li{
+    cursor: pointer;
+}
+.navbar-inverse{
+    background-color: #105397 !important;
+    border:none;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: #105397 !important;
+}
+.dropdown-toggle{
+ cursor: pointer;
+}

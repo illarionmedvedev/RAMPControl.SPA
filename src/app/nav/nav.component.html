@@ -7,11 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">RAMP Control</a>
+      <span class="navbar-brand" style="color:white;">RAMP Control</span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Dashboard</a></li>
+      <ul class="nav navbar-nav" *ngIf="loggedIn()">
+        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  style="color:white;">Dashboard</a></li>
+        <li><a [routerLink]="['/createreport']" style="color:white;">Create Report</a></li>
+        <li><a [routerLink]="['/editreport']" style="color:white;">Edit Reports</a></li>
       </ul>
       <form *ngIf="!loggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
         <div class="form-group">
@@ -24,13 +26,12 @@
       </form>
 
       <ul *ngIf="loggedIn()" class="nav navbar-nav navbar-right">
-          <li><a (click)="logout()">Logout</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome User <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>>
+          <li class="dropdown" dropdown>
+            <a (click)="false" style="color:white;" class="dropdown-toggle" dropdownToggle >Welcome {{authService.decodedToken?.unique_name | titlecase}} <span class="caret"></span></a>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <li><a [routerLink]="['/editprofile']"><i class="fa fa-user"></i> Edit Profile</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <li><a (click)="logout()" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </li>
         </ul>
