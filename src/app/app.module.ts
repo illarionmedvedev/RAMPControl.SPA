@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DailyComentComponent } from './DailyComent/DailyComent.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DailyComentComponent
+    DailyComentComponent,
+    NavComponent
 ],
   imports: [
     BrowserModule,
